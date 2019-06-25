@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, minimum-scale=1, maximum-scale=1">
+    <title>坦克</title>
+    <style type="text/css">
+        h1 {
+            font-size: 18pt;
+            background: #AAAAEE;
+            padding: 5px;
+        }
+        table tr th {
+            background: #DDDDEE;
+            margin: 3px;
+            padding: 3px;
+        }
+        table tr td {
+            background: #EEEEEE;
+            margin: 3px;
+            padding: 3px;
+        }
+        ul li {
+            color: #333366;
+        }
+        #msg {
+            max-height: 80px;
+            overflow: auto;
+            padding-left: 0;
+        }
+        #msg > li {
+            background-color: #fff;
+            font-size: 10px;
+            list-style: none;
+        }
+        #msg > li:nth-of-type(2n+1) {
+            background-color: #ededed;
+        }
+    </style>
+</head>
+<body onload="initial();">
+    <article>
+        <div id="mylegend">
+            loading……
+        </div>
+    </article>
+    <article style="position:absolute;top:420px;">
+        <input type="button" id="openbtn" onclick="doOpen();" value="连接服务器" />
+        <input type="button" id="closebtn" onclick="doClose();" value="断开连接" />
+        <hr>
+        <form onsubmit="return doAction();">
+            <table>
+                <tr>
+                    <th>用户:</th>
+                    <td>
+                    <input type="text" id="name" size="20">
+                    </td>
+                </tr>
+                <tr>
+                    <th>消息:</th>
+                    <td>
+                    <select id="to">
+                        <option value="all">所有人</option>
+                    </select>
+                    <br />
+                    <input type="text" id="message" size="40">
+                    <input type="submit" value="发送">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <hr>
+        <ul id="msg"></ul>
+    </article>
+    <script src="./lib/nano-protocol.js" type="text/javascript"></script>
+    <script src="./lib/nano-websocket-client.js" type="text/javascript"></script>
+    <script src="./lib/lufylegend-1.10.1.min.js" type="text/javascript"></script>
+    <script src="./bullet.js" type="text/javascript"></script>
+    <script src="./tank.js" type="text/javascript"></script>
+    <script src="./app.js" type="text/javascript"></script>
+</body>
+</html>
